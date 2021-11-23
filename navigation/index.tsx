@@ -11,6 +11,8 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import Login from '../screens/Login';
 import HomeScreen from '../screens/Homepage';
 import BottomTabNavigator from './BottomTabNavigator';
+import NotFoundScreen from '../screens/NotFoundScreen'
+import NotVerifiedScreen from '../screens/NotVerified'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -107,16 +109,31 @@ function RootNavigator() {
     }),
     []
   );
+  
 
   return (
-    
-      <Stack.Navigator>
-        {(true) ? (
-          <Stack.Screen name="Root" component={BottomTabNavigator} />
+    <AuthContext.Provider value={authContext}>
+      <Stack.Navigator screenOptions={{ headerShown: false, headerTransparent: true }}>
+        {(!state.userToken) ? ( //token
+          <>
+          <Stack.Screen name="Login" component={Login} />
+          </>
         ) : (
-          <Stack.Screen name="NotFound" component={HomeScreen} />
+          <>
+              {(true) ? //validation email
+              (
+                <>
+                <Stack.Screen name="Root" component={BottomTabNavigator} />
+                <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+                </>
+              )
+              :
+              (
+                <Stack.Screen name="NotFound" component={NotVerifiedScreen} options={{ title: 'Oops!' }} />
+              )}
+          </>
         )}
       </Stack.Navigator>
-    
+      </AuthContext.Provider>
   );
 }

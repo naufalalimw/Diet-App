@@ -14,41 +14,42 @@ export default function LoginScreen({
     const [password, setPassword] = React.useState('');
     const [err, setErr] = React.useState('');
     const [isLoading, setLoading] = React.useState(false);
-    // const { signIn } = React.useContext(AuthContext);
+    const { signIn } = React.useContext(AuthContext);
 
     let login = async () => {
         setLoading(true)
-        let response = await fetch(API_URL+'/api/auth/login', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            })
-        }). then( res => res.json())
-        .catch(err => Alert.alert('Terjadi kesalahan.'))
-        if (response && response.message) {
-            let errMSG = response.message
-            for (const key in response.errors) {
-                if (Object.prototype.hasOwnProperty.call(response.errors, key)) {
-                    const val = response.errors[key];
-                    errMSG += '\n' + val
-                }
-            }
-            setErr(errMSG)
-            setLoading(false)
-            return null
-        }
-        else if (response) {
-            // Alert.alert(response.access_token)
-            setErr('')
-            SecureStore.setItemAsync('access_token',response.access_token)
-            return response
-        }
-        setLoading(false)
+        // let response = await fetch(API_URL+'/api/auth/login', {
+        //     method: 'POST',
+        //     headers: {
+        //         Accept: 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         email: email,
+        //         password: password
+        //     })
+        // }). then( res => res.json())
+        // .catch(err => Alert.alert('Terjadi kesalahan.'))
+        // if (response && response.message) {
+        //     let errMSG = response.message
+        //     for (const key in response.errors) {
+        //         if (Object.prototype.hasOwnProperty.call(response.errors, key)) {
+        //             const val = response.errors[key];
+        //             errMSG += '\n' + val
+        //         }
+        //     }
+        //     setErr(errMSG)
+        //     setLoading(false)
+        //     return null
+        // }
+        // else if (response) {
+        //     // Alert.alert(response.access_token)
+        //     setErr('')
+        //     SecureStore.setItemAsync('access_token',response.access_token)
+        //     return response
+        // }
+        // setLoading(false)
+
     }
 
     return (
@@ -75,7 +76,7 @@ export default function LoginScreen({
                     onChangeText={(password) => setPassword(password)} />
             </View>
             {err ? (<Text style={styles.err}>{err}</Text>) : null}
-            <TouchableOpacity onPress={async () => { signIn(await login()); } } style={styles.link}>
+            <TouchableOpacity onPress={async () => { signIn({user: {email: 'naufalalim1112@gmail.com'}, access_token: 'ganteng'}); } } style={styles.link}>
                 <Text style={styles.linkText}>MASUK</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.replace('Root')} style={styles.link2}>

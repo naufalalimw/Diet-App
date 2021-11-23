@@ -3,7 +3,7 @@
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
 
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
@@ -26,39 +26,39 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="HOME"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint, keyboardHidesTabBar: true }}>
-      <BottomTab.Screen
+      <BottomTab.Screen 
         name="Explore"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="planet" color={color} />,
+          tabBarIcon: ({size, color }) => <MaterialCommunityIcons name="compass" color={color} size={size} />,
         }}
         component={HomeScreen}
       />
       <BottomTab.Screen
         name="Dietku"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="fast-food" color={color} />,
+          tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="food" color={color} size={size}/>,
         }}
         component={DietScreen}
       />
       <BottomTab.Screen
         name="Profile"
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="person" color={color} />,
+          tabBarIcon: ({ size, color }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
         }}
         component={ProfileScreen}
       />
-    </BottomTab.Navigator>
+    </BottomTab.Navigator >
   );
 }
 
 // You can explore the built-in icon families and icons on the web at:
 // https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
+function TabBarIcon(props: { name: React.ComponentProps<typeof MaterialCommunityIcons>['name']; color: string }) {
+  return <MaterialCommunityIcons size={30} style={{ marginBottom: 3 }} {...props} />;
 }
 
-function SearchBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name'];}) {
-  return <Ionicons size={30} style={
+function SearchBarIcon(props: { name: React.ComponentProps<typeof MaterialCommunityIcons>['name'];}) {
+  return <MaterialCommunityIcons size={30} style={
     { 
       marginBottom: 40,
       borderRadius: 20, 
