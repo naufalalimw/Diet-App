@@ -25,7 +25,7 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="HOME"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint, keyboardHidesTabBar: true }}>
+      screenOptions={{ tabBarActiveTintColor: Colors[colorScheme].tint, tabBarHideOnKeyboard: true }} >
       <BottomTab.Screen 
         name="Explore"
         options={{
