@@ -1,4 +1,70 @@
 import * as React from "react";
+<<<<<<< HEAD
+import { Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Dietku from "./Dietku";
+import Profile from "./Profile";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Bridge from "./Bridge";
+
+// import { KalkulasiPage } from "./KalkulasiDiet";
+const Tab = createBottomTabNavigator();
+
+function Homepage() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: "#eb5d76",
+        }}
+      >
+        <Tab.Screen
+          name={"Eksplor"}
+          component={Bridge}
+          options={{
+            tabBarLabel: "Explore",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="compass"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name={"Dietku"}
+          component={Dietku}
+          options={{
+            tabBarLabel: "Dietku",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="food" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name={"Profil"}
+          component={Profile}
+          options={{
+            tabBarLabel: "Profile",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="account"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default Homepage;
+=======
 import {
   View,
   StyleSheet,
@@ -217,3 +283,8 @@ const styles = StyleSheet.create({
   }
 });
 
+<<<<<<< HEAD
+=======
+export default ExplorPage;
+>>>>>>> eec6bcdb5385ef63e5f401b19b14013029861547
+>>>>>>> 77fc5474861a7dfa9b03ac62f726847605ffc26b

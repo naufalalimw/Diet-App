@@ -14,10 +14,15 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+<<<<<<< HEAD
+    "@expo/vector-icons": "^12.0.0",
+    "@react-native-async-storage/async-storage": "^1.15.11",
+=======
     "@expo/vector-icons": "^12.0.5",
     "@react-native-async-storage/async-storage": "^1.15.11",
     "@react-native-community/checkbox": "^0.5.9",
     "@react-native-picker/picker": "2.1.0",
+>>>>>>> eec6bcdb5385ef63e5f401b19b14013029861547
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
