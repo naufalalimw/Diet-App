@@ -11,7 +11,7 @@ class DietkuPage extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.header} >Dietku Page</Text>
+        <Text style={styles.header} >Riwayat Diet</Text>
 
         
         <View style={{
@@ -203,13 +203,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: StatusBar.currentHeight,
+    // paddingTop: StatusBar.currentHeight,
     alignItems: 'center',
     // justifyContent: "center",
   },
   header: {
-    marginTop: 30,
-    fontSize: 24,
+    // marginTop: 30,
+    fontSize: 22,
     textAlign: "center",
     marginBottom: 20,
     fontWeight: "bold",
